@@ -3,6 +3,10 @@ class PortifoliosController < ApplicationController
     @portfolio_items = Portifolio.all
   end
 
+  def angular
+    @portfolio_items_angular = Portifolio.angular
+  end
+
   def new
     @portfolio_items = Portifolio.new
   end
