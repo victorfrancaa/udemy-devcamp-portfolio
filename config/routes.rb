@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+  get 'pages/about'
+  get 'pages/contact'
   devise_for :users, path_names: { sign_in: 'login' , sign_out: 'logout', sign_up: 'register' }
   resources :portifolios
   resources :blogs do
@@ -7,5 +10,6 @@ Rails.application.routes.draw do
     end
   end
 
+  root to: 'pages#home'
 
 end
