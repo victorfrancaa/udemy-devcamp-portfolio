@@ -4,15 +4,15 @@ class PortifoliosController < ApplicationController
   end
 
   def new
-    @portfolio_items = Portifolio.new
+    @portfolio_item = Portifolio.new
   end
 end
 
 def create
-  @portfolio_items = Portifolio.new(params.require(:@portfolio).permit(:title, :subtitle, :body))
+  @portfolio_item = Portifolio.new(params.require(:@portfolio).permit(:title, :subtitle, :body))
 
   respond_to do |format|
-    if @portfolio_items.save
+    if @portfolio_item.save
       format.html { redirect_to portifolios_path, notice: 'Your Portfolio item is now live.' }
     else
       format.html { render :new }
@@ -21,14 +21,14 @@ def create
 end
 
 def edit
-  @portfolio_items = Portifolio.find(params[:id])
+  @portfolio_item = Portifolio.find(params[:id])
 end
 
 def update
-  @portfolio_items = Portifolio.find(params[:id])
+  @portfolio_item = Portifolio.find(params[:id])
 
   respond_to do |format|
-    if @portfolio_items.update(params.require(:@portfolio).permit(:title, :subtitle, :body))
+    if @portfolio_item.update(params.require(:@portfolio).permit(:title, :subtitle, :body))
       format.html { redirect_to portifolios_path, notice: 'Portfolio was successfully updated.' }
     else
       format.html { render :edit }
@@ -37,13 +37,13 @@ def update
 end
 
 def show
-  @portfolio_items = Portifolio.find(params[:id])
+  @portfolio_item = Portifolio.find(params[:id])
 end
 
 def destroy
-  @portfolio_items = Portifolio.find(params[:id])
+  @portfolio_item = Portifolio.find(params[:id])
 
-  @portfolio_items.destroy
+  @portfolio_item.destroy
   respond_to do |format|
     format.html { redirect_to portifolios_url, notice: 'Portfolio was successfully destroyed.' }
   end
