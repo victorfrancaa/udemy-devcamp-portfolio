@@ -7,6 +7,6 @@
 <p><%= item.main_image %></p>
 
 <%= image_tag item.thumg_image if !item.thumg_image .nil? %>
-<%= link_to "Edit", edit_portifolio_path(item.id) %>
+<%= link_to "Edit", edit_portifolio_path(item.id) if logged_in?(:site_admin) %>
 <a href="/portifolios/<%= item.id %>/edit">Edit Two</a> #outra forma de fazer o edit
-<%= link_to 'Destroy', portifolio_path(item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Destroy', portifolio_path(item.id), method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>

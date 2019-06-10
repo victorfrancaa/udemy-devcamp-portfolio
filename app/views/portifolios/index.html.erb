@@ -2,7 +2,7 @@
 
 <a href="portifolios/new" >Create New Item</a>
 
-<%= link_to "Create New Item", new_portifolio_url %> #outra maneira de fazer
+<%= link_to "Create New Item", new_portifolio_url if logged_in?(:site_admin) %> #outra maneira de fazer
 
 <p>
   <%= new_portifolio_path %>
